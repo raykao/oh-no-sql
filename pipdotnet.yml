@@ -15,3 +15,10 @@ steps:
     ArtifactName: 'dotnet'
     publishLocation: 'Container'
 
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'OTA-PRD-573 (7db14119-8eab-48d0-9ba2-26d0bd9deab1)'
+    appType: 'webApp'
+    WebAppName: 'HighTableWebApp'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
