@@ -164,9 +164,9 @@
                 <version>1.5.3</version>
                 <configuration>
                     <schemaVersion>v2</schemaVersion>
-                    <resourceGroup>[Replace with your Resource Group]</resourceGroup>
-                    <appName>[Replace with your Web App Name</appName>
-                    <region>[Replace with your Region]</region>
+                    <resourceGroup>HighTableJavaApp</resourceGroup>
+                    <appName>hightablejavaapp</appName>
+                    <region>East US 2</region>
                     <runtime>
                         <os>linux</os>
                         <javaVersion>jre8</javaVersion>
