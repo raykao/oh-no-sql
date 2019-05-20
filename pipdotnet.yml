@@ -8,3 +8,4 @@
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'dotnet'
     publishLocation: 'Container'
+
