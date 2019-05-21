@@ -141,3 +141,11 @@ Launch Terminal in VS Code
 mvn package 
 mvn azure-webapp:deploy
 ```
+
+## Local Docker SQL Server:
+
+A local mssql folder is required at the root of the project.  Git will ignore this folder.
+
+```
+docker run -it --rm  -e 'ACCEPT_EULA=Y' -v $PWD/mssql:/var/opt/mssql -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 mcr.microsoft.com/mssql/server:2017-CU8-ubuntu
+```

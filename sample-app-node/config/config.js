@@ -1,10 +1,21 @@
 module.exports = {
 	development: {
-		username: 'sa',
-		password: 'yourStrong(!)Password',
+		username: 'winston',
+		password: 'Parabellum~',
 		database: 'concierge',
-		host: 'localhost:1433',
-		dialect: 'mssql'
+		encrypt: true,
+		host: 'thecontinental.database.windows.net',
+		dialect: 'mssql',
+		define: {
+			timestamps: true,
+			createdAt: "CreatedOnDate",
+			updatedAt: false
+		  },
+		dialectOptions: {
+			options: {
+				encrypt: true
+			}
+		}
 	},
 	production: {
 		username: process.env.DB_USERNAME,
@@ -12,8 +23,18 @@ module.exports = {
 		database: process.env.DB_NAME,
 		host: process.env.DB_HOSTNAME,
 		dialect: 'mssql',
+		define: {
+			timestamps: true,
+			createdAt: "CreatedOnDate",
+			updatedAt: false
+		  },
 		dialectOptions: {
-			encrypt: true
+			options: {
+				encrypt: true
+			}
+		},
+		dialectOptions: {
+			options: {encrypt: true}
 		}
 	}
 };

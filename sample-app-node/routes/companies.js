@@ -3,10 +3,6 @@ var router = express.Router();
 var CompanyController = require('../controllers/companiesController')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 router.get('/', CompanyController.list);
 router.get('/:id', CompanyController.show);
 

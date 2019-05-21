@@ -1,9 +1,14 @@
+const DB = require('../models/sql');
+
 const create = function(req, res, next) {
 	
 }
 
 const list = function(req, res, next) {
-
+	DB.Company.findAll()
+		.then(results => {
+			res.render('companies/list', {companies: results})
+		})
 }
 
 const show = function(req, res, next) {
