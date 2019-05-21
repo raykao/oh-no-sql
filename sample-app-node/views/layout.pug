@@ -1,7 +1,36 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title Contoso Jobs - #{title}
+		link(href="/stylesheets/bootstrap.min.css" rel="stylesheet")
+		link(href="/stylesheets/bootstrap-theme.min.css" rel="stylesheet")
+		link(href="/stylesheets/PagedList.css" rel="stylesheet")
+		link(href="/stylesheets/site.css" rel="stylesheet")
+		link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet")
+		style(type="text/css").
+			.checked {
+				color: orange;
+			}
+		link(href='/stylesheets/style.css' rel='stylesheet')
+		title= title
+	body
+		include navigation.pug
+		.container.body-content
+			div(style="background-image: url('/stylesheets/DeathtoStock_Desk7.jpg'); height:1080px; width: 1920px;max-width: 100%; max-height: 100%; background-repeat: no-repeat; background-size:cover; position: absolute; left: 0; top: 0; opacity: .6; overflow-x: hidden; overflow-y: hidden;")
+				.overlay(style="height:1080px; width: 1920px;max-width: 100%;max-height: 100%;  background-color: #000; opacity: .6; position: absolute; left: 0; top: 0; overflow-x: hidden;overflow-y: hidden;")
+					block content
+	  
+				footer.footer-layout
+					p &copy; 2019 - Contoso Jobs
+		script( src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js")
+		script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+		script(type="text/javascript" src="/javascripts/jquery.js")
+		script(type="text/javascript" src="/javascripts/jquery-3.3.1.slim.min.js")
+		script(type="text/javascript" src="/javascripts/jquery.validate-vsdoc.js")
+		script(type="text/javascript" src="/javascripts/jquery.validate.min.js")
+		script(type="text/javascript" src="/javascripts/jquery.validate.unobtrusive.min.js")
+		script(type="text/javascript" src="/javascripts/modernizr-2.8.3.js")
+		script(type="text/javascript" src="/javascripts/bootstrap.bundle.min.js")
+		script(type="text/javascript" src="/javascripts/bootstrap.min.js")

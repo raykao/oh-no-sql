@@ -1,0 +1,50 @@
+.navbar.navbar-inverse.navbar-fixed-top
+	.container(style="margin: 0; padding-left: 0; padding-right: 0;position: relative; left: 6%; right: 6%; top: 0;")
+		.navbar-header
+			button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar
+			a.navbar-brand(href="#{pageContext.request.contextPath}/home") Contoso Jobs
+
+		.navbar-collapse.collapse
+			ul.nav.navbar-nav
+					li
+						a(href="#{pageContext.request.contextPath}/home") Search Jobs
+					
+					if isAuthenticated
+						if isAdmin
+							li
+								a(href="#{pageContext.request.contextPath}/AddCompanyUser") Add User
+
+						if isJobPoster
+							li
+								a(href="#{pageContext.request.contextPath}/PostJob") Post Jobs
+
+						if isJobReviewer
+							li
+								a(href="#{pageContext.request.contextPath}/admin") View Job Postings
+
+					else
+						li
+							a(href="#{pageContext.request.contextPath}/member/registerUser") Job Seeker
+						li
+							a(href="#{pageContext.request.contextPath}/member/registerCompany") Employer
+
+			ul.nav.navbar-nav(style="position:fixed; right: 6%;")
+				if isAuthenticated
+					li
+						img(src="/stylesheets/User.png" style="margin-top:5px; height: 40px; padding: 3px; border: 1px solid gray; border-radius: 50%;")
+					if isJobViewer
+						li
+							a(href="#{pageContext.request.contextPath}/admin") #{username}
+
+					if isRoleMember
+						li
+							a(href="#{pageContext.request.contextPath}/member/profile") #{username}
+					li
+						form(action="#{pageContext.request.contextPath}/logout" method="POST")
+							input(type="submit" class="plain-text-btn" value="Logout")
+				else
+					li
+						a(href="login") Login
