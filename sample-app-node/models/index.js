@@ -1,5 +1,7 @@
 'use strict';
 
+// Exports a Single Object to access all Data Models
+
 const fs        = require('fs');
 const path      = require('path');
 const Sequelize = require('sequelize');

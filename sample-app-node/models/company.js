@@ -1,17 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Company = sequelize.define('Company', {
-    title: DataTypes.STRING
+  const Company = sequelize.define('Company', {
+    Id: {type: DataTypes.STRING(50), unique: 'compositeIndex' },
+    Name: DataTypes.STRING(50),
+    City: DataTypes.STRING(50),
+    State: DataTypes.STRING(50),
+    IsActive: DataTypes.BOOLEAN(),
+    CreatedOnDate: DataTypes.Date()
   });
-
-  Company.associate = function (models) {
-    models.Company.belongsTo(models.User, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
 
   return Company;
 };
