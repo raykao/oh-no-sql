@@ -1,4 +1,3 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Company = sequelize.define('Company', {
     Name: DataTypes.STRING(50),
@@ -6,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     State: DataTypes.STRING(50),
     IsActive: DataTypes.BOOLEAN
   });
+
+  Company.associate = (models) => {
+    models.Company.hasMany(models.Job, {
+      foreignKey: "CompanyID"
+    })
+  }
 
   return Company;
 };

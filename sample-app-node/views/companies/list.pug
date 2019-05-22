@@ -3,4 +3,5 @@ extends ../layout
 block content
 	ul
 		each company in companies
-			li #{company.id}
+			li 
+				a(href=`/companies/${company.id}`) #{company.Name}

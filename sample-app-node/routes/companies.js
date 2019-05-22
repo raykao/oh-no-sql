@@ -3,7 +3,7 @@ var router = express.Router();
 var CompanyController = require('../controllers/companiesController')
 
 /* GET users listing. */
-router.get('/', CompanyController.list);
+router.get('/', CompanyController.index);
 router.get('/:id', CompanyController.show);
 
 router.post('/', CompanyController.create);

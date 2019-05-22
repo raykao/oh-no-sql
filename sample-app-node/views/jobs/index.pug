@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    form(action="/" method="GET" class="base-content job-search-layout")
+        input(name="Search" placeholder="Search" id="Search" class="job-list-layout")
+        input(type="submit" value="Submit" class="submit-layout")
+    table.table.base-content.table-layout
+        tr
+            th
+            th Company Name
+            th Rating
+            th Job Title
+            th City
+            th State
+            th Date Created
+            th 
+
+        for job in jobs
+            tr
+                td
+                td
+                    form(action="/SearchByCompany" method="GET")
+                        input(type="hidden" name="SearchByCompany" value="#{job.CompanyName}")
+                        input(type="submit"  value="#{job.CompanyName}" class="plain-text-btn company-name")
+                td
+                    td #{job.JobTitle}
+                    td #{job.City}
+                    td #{job.State}
+                    td #{job.CreatedOnDate} "pattern="yyyy-MM-dd-HH.mm.ss.SSSSSSZ"
+                    td
+                    td.view-btn
+                        form(action="/JobDetails" method="POST")
+                            input(name="jobId" type="hidden" value="#{job.JobPostingID}")
+                          	input(type="submit"  value="view")
