@@ -5,3 +5,21 @@ block content
 		each company in companies
 			li 
 				a(href=`/companies/${company.id}`) #{company.Name}
+
+	nav(aria-label="Page navigation example")
+		ul.pagination
+			li.page-item(class={disabled : currentPage === 1})
+				if currentPage === 0
+					span.page-link Previous
+				else
+					a.page-link(href=`/companies?page=${currentPage - 1}&limit=${limit}`) Previous
+
+			- for (var index = 1; index <= pageCount; index++)
+				li.page-item(class={active : index == currentPage})
+					a(class="page-link" href=`/companies?page=${index}&limit=${limit}`) #{index}
+
+			li.page-item(class={disabled : currentPage == pageCount})
+				if currentPage == pageCount
+					span.page-link Next
+				else
+					a.page-link(href=`/companies?page=${currentPage++}&limit=${limit}`) Next

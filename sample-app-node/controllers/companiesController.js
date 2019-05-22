@@ -6,8 +6,8 @@ const create = function(req, res, next) {
 
 const index = async function(req, res, next) {
 	const limit = parseInt(req.query.limit) || 10;
-	const currentPage = (req.query.page > 0 ? req.query.page : 1) - 1;
-	const offset = currentPage * limit;
+	const currentPage = (req.query.page > 0 ? req.query.page : 1);
+	const offset = (currentPage - 1) * limit;
 
 	const companies = await DB.Company.findAll({
 		limit: limit,
@@ -18,8 +18,9 @@ const index = async function(req, res, next) {
 
 	res.render('companies/list', {
 		companies: companies, 
-		companiesCount: companiesCount, 
-		currentPage: currentPage
+		pageCount: Math.ceil(companiesCount/limit), 
+		currentPage: currentPage,
+		limit: limit
 	})
 }
 
