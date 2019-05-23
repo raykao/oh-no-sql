@@ -3,13 +3,10 @@ const router = express.Router();
 const JobsController = require('../controllers/jobsController');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/',JobsController.index);
 
 router.post('/', JobsController.create);
 
-router.get('/', JobsController.list);
 router.get('/:id', JobsController.show);
 
 router.put('/', JobsController.update);

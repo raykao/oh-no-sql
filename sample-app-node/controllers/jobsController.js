@@ -4,17 +4,17 @@ const create = function(req, res, next) {
 	
 }
 
-const list = async function(req, res, next) {
-	const limitPerPage = 10;
+const index = async function(req, res, next) {
+	const limitPerPage = 5;
 	const page = (req.query.page > 0 ? req.query.page : 1) - 1;
-	const offset = limit * page;
+	const offset = limitPerPage * page;
 
 	const options = {
 		limit: limitPerPage,
 		offset: offset
 	}
 
-	const jobs = await Job.findAll();
+	const jobs = await Job.findAll(options);
 	const jobsCount = await Job.count();
 
 	res.render('jobs/index', {jobs: jobs, requestedPage: page, pageCount: (jobsCount/limitPerPage)})
@@ -33,7 +33,7 @@ const destroy = function(req, res, next) {
 }
 
 module.exports.create = create;
-module.exports.list = list ;
+module.exports.index = index ;
 module.exports.show = show;
 module.exports.update = update;
 module.exports.destroy = destroy;

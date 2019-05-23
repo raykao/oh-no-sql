@@ -5,12 +5,12 @@ nav.navbar.navbar-dark.bg-dark
 				span.icon-bar
 				span.icon-bar
 				span.icon-bar
-			a.navbar-brand(href="#{pageContext.request.contextPath}/home") Contoso Jobs
+			a.navbar-brand(href="/") Contoso Jobs
 
 		.navbar-collapse.collapse
 			ul.nav.navbar-nav
 					li
-						a(href="#{pageContext.request.contextPath}/home") Search Jobs
+						a(href="/jobs") Search Jobs
 					
 					if isAuthenticated
 						if isAdmin

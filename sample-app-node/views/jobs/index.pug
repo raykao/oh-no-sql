@@ -20,8 +20,8 @@ block content
                 td
                 td
                     form(action="/SearchByCompany" method="GET")
-                        input(type="hidden" name="SearchByCompany" value="#{job.CompanyName}")
-                        input(type="submit"  value="#{job.CompanyName}" class="plain-text-btn company-name")
+                        input(type="hidden" name="SearchByCompany" value=`${job.Company.Name}`)
+                        input(type="submit"  value=`${job.CompanyName}` class="plain-text-btn company-name")
                 td
                     td #{job.JobTitle}
                     td #{job.City}
@@ -31,4 +31,4 @@ block content
                     td.view-btn
                         form(action="/JobDetails" method="POST")
                             input(name="jobId" type="hidden" value="#{job.JobPostingID}")
-                          	input(type="submit"  value="view")
+                            input(type="submit"  value="view")
